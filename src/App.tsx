@@ -20,9 +20,11 @@ function App() {
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
   const [isFormVisible, setIsFormVisible] = useState<boolean>(false);
   const [idUserToEdit, setIdUserToEdit] = useState<number | null>();
+  const [visibilityPass, setVisibilityPass] = useState("password");
   const [formData, setFormData] = useState<Users>(emptyValueForm);
   const [users, setUsers] = useState<Users[]>([]);
   const formRef = useRef<HTMLFormElement>(null);
+
   const loadUsers = async () => {
     const users = await readUsers();
     setUsers(users);
@@ -53,6 +55,8 @@ function App() {
     setIdUserToEdit(null);
     setFormData(emptyValueForm);
   };
+  const handleVisibility = () =>
+    setVisibilityPass(visibilityPass === "password" ? "text" : "password");
   const handleEdit = (userData: Users) => {
     setIdUserToEdit(userData.id);
     const formData = {
@@ -102,6 +106,8 @@ function App() {
           formRef={formRef}
           setFormData={setFormData}
           formData={formData}
+          handleVisibility={handleVisibility}
+          visibilityPass={visibilityPass}
         />
       )}
       {isModalVisible && (

@@ -25,6 +25,8 @@ export interface UserFormProps {
   handleFormVisible: () => void;
   formData: Users;
   setFormData: React.Dispatch<React.SetStateAction<Users>>;
+  handleVisibility: () => void;
+  visibilityPass: string;
 }
 export interface HeaderProps {
   handleFormVisible: () => void;

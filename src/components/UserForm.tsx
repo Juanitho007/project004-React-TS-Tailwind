@@ -1,14 +1,18 @@
+import { useState } from "react";
 import { UserFormProps } from "../interfaces/interfaces";
-
+useState
 const UserForm = ({
   handleSubmit,
   formRef,
   handleFormVisible,
   idUserToEdit,
   handleEditCancel,
+  handleVisibility,
   setFormData,
-  formData
+  formData,
+  visibilityPass
 }: UserFormProps) => {
+
   return (
     <>
       <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-10 bg-cyan-400/70 backdrop-blur-[2px] outline-none focus:outline-none">
@@ -78,11 +82,13 @@ const UserForm = ({
                   required
                 />
                 <label htmlFor="password" className="text-lg font-bold">
-                  Password:
+                  Password: <button type="button" onClick={handleVisibility}>
+                    <i className="bx bx-low-vision bx-tada"></i>
+                  </button>
                 </label>
                 <input
                   autoComplete="off"
-                  type="password"
+                  type={visibilityPass}
                   name="password"
                   defaultValue={formData.password}
                   onChange={(e) =>

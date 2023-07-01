@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { UserFormProps } from "../interfaces/interfaces";
-useState
 const UserForm = ({
   handleSubmit,
   formRef,

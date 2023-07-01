@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { Users } from "../interfaces/interfaces";
 
 export const createUsers = async (data:Users) => {
-  const url = `${baseUrl}users/`;
+  const url = `${baseUrl}/users`;
   try {
     await axios.post(url, data);
     toast.success("User created successfully!");
@@ -14,7 +14,7 @@ export const createUsers = async (data:Users) => {
   }
 };
 export const readUsers = async () => {
-  const url = `${baseUrl}users/`
+  const url = `${baseUrl}/users`
   try {
     const res = await axios.get(url);
     return res.data;
@@ -24,7 +24,7 @@ export const readUsers = async () => {
   }
 };
 export const updateUsers = async (userId: number, data: Users) => {
-  const url = `${baseUrl}users/${userId}/`;
+  const url = `${baseUrl}/users/${userId}`;
   try {
     await axios.put(url, data);
     toast.success("User updated successfully!");
@@ -34,7 +34,7 @@ export const updateUsers = async (userId: number, data: Users) => {
   }
 };
 export const deleteUsers = async (userId:number) => {
-  const url = `${baseUrl}users/${userId}`;
+  const url = `${baseUrl}/users/${userId}`;
   try {
     await axios.delete(url);
     toast.success("User deleted successfully!");
